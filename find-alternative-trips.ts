@@ -1,3 +1,4 @@
+/** Creates a search function for alternative GTFS trips. @module */
 'use strict'
 
 import type {FindAlternativeTrips} from './types.ts'
@@ -12,6 +13,7 @@ import resolveTime from './lib/resolve-time.ts'
 
 const isObj = o => 'object' === typeof o && o !== null && !Array.isArray(o)
 
+/** Creates a function that yields trips matching a time and stop window. */
 const createFindAlternativeTrips: FindAlternativeTrips = async (readFile, timezone, services, schedules) => {
 	debug('reading stops.stop_timezone')
 	// stop.stop_id -> stop.stop_timezone || parent.stop_timezone

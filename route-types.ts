@@ -1,9 +1,11 @@
+/** Maps between GTFS and FPTF route types. @module */
 'use strict'
 
 import type {ExtendedToBasic, FptfToGtfs, GtfsToFptf} from './types.ts'
 
 // https://developers.google.com/transit/gtfs/reference#routestxt
 // todo: add descriptions/examples as strings
+/** Basic GTFS route type mappings. */
 const basicRouteTypes = [
 	// Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.
 	{gtfs: 0, fptf: 'train'},
@@ -30,6 +32,7 @@ const basicRouteTypes = [
 // https://developers.google.com/transit/gtfs/reference/extended-route-types
 // see also https://github.com/google/transit/pull/279
 // see also https://bit.ly/gtfs-modes-and-networks
+/** Extended GTFS route type mappings. */
 const extendedRouteTypes = [
 	// Railway Service
 	{gtfs: 100, fptf: 'train'},
@@ -181,11 +184,13 @@ const extendedRouteTypes = [
 	{gtfs: 1702, fptf: null},
 ]
 
+/** All basic and extended GTFS route type mappings. */
 const all = [
 	...basicRouteTypes,
 	...extendedRouteTypes,
 ]
 
+/** Converts an extended GTFS route type to its basic equivalent. */
 const extendedToBasic: ExtendedToBasic = (extended) => {
 	const {fptf} = extendedRouteTypes.find(m => m.gtfs === extended) || {}
 	if (!fptf) throw new Error('unknown/invalid extended type')
@@ -193,10 +198,12 @@ const extendedToBasic: ExtendedToBasic = (extended) => {
 	return Number.isInteger(gtfs) ? gtfs : null
 }
 
+/** Converts a GTFS route type to an FPTF mode. */
 const gtfsToFptf: GtfsToFptf = (gtfsType) => {
 	const match = all.find(m => m.gtfs === gtfsType)
 	return match ? match.fptf : null
 }
+/** Converts an FPTF mode to a GTFS route type. */
 const fptfToGtfs: FptfToGtfs = (fptfMode) => {
 	const match = all.find(m => m.fptf === fptfMode)
 	return match ? match.gtfs : null
@@ -211,6 +218,7 @@ export {
 	fptfToGtfs,
 }
 
+/** Route type mappings and conversion helpers. */
 export default {
 	basic: basicRouteTypes,
 	extended: extendedRouteTypes,

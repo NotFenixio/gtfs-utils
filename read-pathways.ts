@@ -1,3 +1,4 @@
+/** Reads GTFS pathways into station graphs. @module */
 'use strict'
 
 import type {ReadPathways} from './types.ts'
@@ -10,6 +11,7 @@ import readStopStations from './lib/read-stop-stations.ts'
 
 const BIDIRECTIONAL = '1'
 
+/** Yields pathways grouped into their station graph. */
 const readPathways: ReadPathways = async function* (readFile, filters = {}, opt = {}) {
 	if (typeof readFile !== 'function') {
 		throw new TypeError('readFile must be a function')

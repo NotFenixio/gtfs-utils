@@ -1,3 +1,4 @@
+/** Reads GTFS stops and groups station children. @module */
 'use strict'
 
 import type {ReadStops} from './types.ts'
@@ -12,6 +13,7 @@ import {
 
 const noFilter = () => true
 
+/** Reads stops into a store and attaches station child IDs. */
 const readStops: ReadStops = async (readFile, filters = {}, opt = {}) => {
 	if (typeof readFile !== 'function') {
 		throw new TypeError('readFile must be a function')

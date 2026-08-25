@@ -1,9 +1,11 @@
+/** Reads GTFS shape points grouped by shape ID. @module */
 'use strict'
 
 import type {ReadShapes} from './types.ts'
 
 import expectSorting from './lib/expect-sorting.ts'
 
+/** Yields parsed points for each GTFS shape. */
 const readShapes: ReadShapes = async function* (readFile, filters = {}) {
 	if ('function' !== typeof readFile) {
 		throw new Error('readFile must be a function.')

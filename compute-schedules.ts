@@ -1,3 +1,4 @@
+/** Builds reusable schedules from GTFS stop times. @module */
 'use strict'
 
 import type {ComputeSchedules} from './types.ts'
@@ -8,6 +9,7 @@ const shorthash = shorthashModule.unique
 import inMemoryStore from './lib/in-memory-store.ts'
 import readStopTimes from './lib/read-stop-times.ts'
 
+/** Groups equivalent trip timings into schedules. */
 const computeSchedules: ComputeSchedules = async (readFile, filters = {}, opt = {}) => {
 	if ('function' !== typeof readFile) {
 		throw new Error('readFile must be a function.')

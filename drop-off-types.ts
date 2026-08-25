@@ -1,5 +1,7 @@
+/** GTFS drop-off type constants. @module */
 'use strict'
 
+/** Drop-off type values defined by the GTFS specification. */
 const dropOffTypes = {
 	REGULAR: 0,
 	NOT_AVAILBLE: 1,

@@ -1,3 +1,4 @@
+/** Optimises GTFS calendar rows and service exceptions. @module */
 'use strict'
 
 import type {OptimiseServicesAndExceptions} from './types.ts'
@@ -28,6 +29,7 @@ const noWeekday = {
 
 const formatDate = isoDate => isoDate.split('-').join('')
 
+/** Yields an equivalent, compact calendar and exception representation. */
 const optimiseServicesAndExceptions: OptimiseServicesAndExceptions = async function* (readFile, timezone, filters = {}, opt = {}) {
 	const weekdaysMap = new Map()
 	const svcsAndExceptions = readServicesAndExceptions(readFile, timezone, filters, {

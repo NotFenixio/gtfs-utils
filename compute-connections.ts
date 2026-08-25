@@ -1,3 +1,4 @@
+/** Computes scheduled and frequency-based GTFS connections. @module */
 'use strict'
 
 import type {ComputeConnections} from './types.ts'
@@ -5,6 +6,7 @@ import type {ComputeConnections} from './types.ts'
 import readStopTimes from './lib/read-stop-times.ts'
 
 // todo: respect stopover.stop_timezone & agency.agency_timezone
+/** Computes the connections for each trip in a GTFS feed. */
 const computeConnections: ComputeConnections = async function* (readFile, filters = {}, opt = {}) {
 	if ('function' !== typeof readFile) {
 		throw new Error('readFile must be a function.')

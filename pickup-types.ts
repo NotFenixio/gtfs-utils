@@ -1,5 +1,7 @@
+/** GTFS pickup type constants. @module */
 'use strict'
 
+/** Pickup type values defined by the GTFS specification. */
 const pickupTypes = {
 	REGULAR: 0,
 	NOT_AVAILBLE: 1,

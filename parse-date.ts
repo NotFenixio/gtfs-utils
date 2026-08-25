@@ -1,3 +1,4 @@
+/** Parses GTFS dates into Unix timestamps. @module */
 'use strict'
 
 import type {ParseDate} from './types.ts'
@@ -9,6 +10,7 @@ const dateFormat = /^\d{8}$/
 
 const cache = new LRUCache({maxSize: 200})
 
+/** Parses a YYYYMMDD GTFS date in an optional timezone. */
 const parseDate: ParseDate = (str, timezone) => {
 	if ('string' !== typeof str) throw new Error('str must be a string.')
 	if (!dateFormat.test(str)) throw new Error('str must be YYYYMMDD.')

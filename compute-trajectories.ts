@@ -1,3 +1,4 @@
+/** Builds GeoJSON trajectories for GTFS trips. @module */
 'use strict'
 
 import type {ComputeTrajectories} from './types.ts'
@@ -13,6 +14,7 @@ import readShapes from './read-shapes.ts'
 import computeSchedules from './compute-schedules.ts'
 import buildTrajectory from './lib/build-trajectory.ts'
 
+/** Yields GeoJSON line features for trips with a GTFS shape. */
 const computeTrajectories: ComputeTrajectories = async function* (readFile, filters = {}, opt = {}) {
 	if (typeof readFile !== 'function') {
 		throw new TypeError('readFile must be a function')

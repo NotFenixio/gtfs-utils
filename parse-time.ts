@@ -1,9 +1,11 @@
+/** Parses GTFS time strings. @module */
 'use strict'
 
 import type {ParseTime} from './types.ts'
 
 const timeFormat = /^\d{1,3}:\d{2}(:\d{2})?$/
 
+/** Parses a GTFS time, including times beyond midnight. */
 const parseTime: ParseTime = (str) => {
 	if ('string' !== typeof str) throw new Error('str must be a string.')
 	if (!timeFormat.test(str)) throw new Error('str must be (h)hh:mm(:ss).')

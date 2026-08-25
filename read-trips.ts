@@ -1,3 +1,4 @@
+/** Reads GTFS trips into a store keyed by trip ID. @module */
 'use strict'
 
 import type {ReadTrips} from './types.ts'
@@ -5,6 +6,7 @@ import type {ReadTrips} from './types.ts'
 import inMemoryStore from './lib/in-memory-store.ts'
 import expectSorting from './lib/expect-sorting.ts'
 
+/** Reads matching trips into a store keyed by trip ID. */
 const readTrips: ReadTrips = async (readFile, filters = {}, opt = {}) => {
 	if (typeof readFile !== 'function') {
 		throw new TypeError('readFile must be a function')

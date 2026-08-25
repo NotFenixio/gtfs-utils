@@ -1,3 +1,4 @@
+/** Computes connections ordered by departure time. @module */
 'use strict'
 
 import type {ComputeSortedConnections} from './types.ts'
@@ -13,6 +14,7 @@ import readServicesAndExceptions from './read-services-and-exceptions.ts'
 import computeConnections from './compute-connections.ts'
 import resolveTime from './lib/resolve-time.ts'
 
+/** Computes and orders all dated connections by departure. */
 const computeSortedConnections: ComputeSortedConnections = async (readFile, timezone, filters = {}, opt = {}) => {
 	if ('string' !== typeof timezone || !timezone) {
 		throw new Error('timezone must be a non-empty string.')

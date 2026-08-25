@@ -1,3 +1,4 @@
+/** Reads GTFS service calendars and exceptions. @module */
 'use strict'
 
 import type {ReadServicesAndExceptions} from './types.ts'
@@ -12,6 +13,7 @@ import parseDate from './lib/parse-date.ts'
 const REMOVED = '2'
 const ADDED = '1'
 
+/** Yields each service with its active and removed dates. */
 const readServicesAndExceptions: ReadServicesAndExceptions = async function* (readFile, timezone, filters = {}, opt = {}) {
 	if (typeof readFile !== 'function') {
 		throw new TypeError('readFile must be a function')

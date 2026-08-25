@@ -1,3 +1,4 @@
+/** Finds service breaks between sorted connections. @module */
 'use strict'
 
 import type {ComputeServiceBreaks} from './types.ts'
@@ -6,6 +7,7 @@ import type {ComputeServiceBreaks} from './types.ts'
 
 import inMemoryStore from './lib/in-memory-store.ts'
 
+/** Yields gaps between consecutive services on the same stop pair. */
 const computeServiceBreaks: ComputeServiceBreaks = async function* (connections, opt = {}) {
 	const {
 		createStore,

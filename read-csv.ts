@@ -1,3 +1,4 @@
+/** Reads GTFS CSV data from a path or readable stream. @module */
 'use strict'
 
 import type {ReadCsv} from './types.ts'
@@ -8,6 +9,7 @@ import {pipeline} from 'stream'
 import stripBomStream from 'strip-bom-stream'
 import parseCsv from 'csv-parser'
 
+/** Parses CSV rows from a file path or readable stream. */
 const readCsv: ReadCsv = async (path) => {
 	const isPathStream = isReadable(path)
 	if (typeof path !== 'string' && !isPathStream) {

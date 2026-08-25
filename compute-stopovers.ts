@@ -1,3 +1,4 @@
+/** Computes GTFS stopovers with absolute arrival and departure times. @module */
 'use strict'
 
 import type {ComputeStopovers} from './types.ts'
@@ -12,6 +13,7 @@ import readStopTimes from './lib/read-stop-times.ts'
 import readServicesAndExceptions from './read-services-and-exceptions.ts'
 import resolveTime from './lib/resolve-time.ts'
 
+/** Yields dated stopovers for all matching GTFS trips. */
 const computeStopovers: ComputeStopovers = async function* (readFile, timezone, filters = {}, opt = {}) {
 	if ('function' !== typeof readFile) {
 		throw new Error('readFile must be a function.')
