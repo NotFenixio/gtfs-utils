@@ -6,18 +6,18 @@ const {createReadStream} = require('fs')
 const {join: pathJoin} = require('path')
 const {readJSON5Sync, readFilesFromFixture} = require('./lib')
 
-const readCsv = require('../read-csv')
-const inMemStore = require('../lib/in-memory-store')
-const formatDate = require('../format-date')
-const datesBetween = require('../lib/dates-between')
-const resolveTime = require('../lib/resolve-time')
-const readStopTimezones = require('../lib/read-stop-timezones')
-const readServicesAndExceptions = require('../read-services-and-exceptions')
-const computeStopovers = require('../compute-stopovers')
-const computeSortedConnections = require('../compute-sorted-connections')
-const computeServiceBreaks = require('../compute-service-breaks')
+const readCsv = require('../read-csv').default
+const inMemStore = require('../lib/in-memory-store').default
+const formatDate = require('../format-date').default
+const datesBetween = require('../lib/dates-between').default
+const resolveTime = require('../lib/resolve-time').default
+const readStopTimezones = require('../lib/read-stop-timezones').default
+const readServicesAndExceptions = require('../read-services-and-exceptions').default
+const computeStopovers = require('../compute-stopovers').default
+const computeSortedConnections = require('../compute-sorted-connections').default
+const computeServiceBreaks = require('../compute-service-breaks').default
 const {extendedToBasic} = require('../route-types')
-const optimiseServicesAndExceptions = require('../optimise-services-and-exceptions')
+const optimiseServicesAndExceptions = require('../optimise-services-and-exceptions').default
 
 const testWithFixtures = (fn, fixtures, prefix = '') => {
 	fixtures.forEach((f) => {
@@ -37,19 +37,19 @@ const testWithFixtures = (fn, fixtures, prefix = '') => {
 }
 
 testWithFixtures(
-	require('../parse-date'),
+	require('../parse-date').default,
 	readJSON5Sync(require.resolve('./fixtures/parse-date.json5')),
 	'parse-date',
 )
 
 testWithFixtures(
-	require('../parse-time'),
+	require('../parse-time').default,
 	readJSON5Sync(require.resolve('./fixtures/parse-time.json5')),
 	'parse-time',
 )
 
 testWithFixtures(
-	require('../lib/resolve-time'),
+	require('../lib/resolve-time').default,
 	readJSON5Sync(require.resolve('./fixtures/resolve-time.json5')),
 	'resolve-time',
 )

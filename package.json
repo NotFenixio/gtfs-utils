@@ -66,18 +66,22 @@
 		"strip-bom-stream": "^4.0.0"
 	},
 	"devDependencies": {
+		"@types/node": "^26.3.0",
 		"benchmark": "^2.1.4",
 		"eslint": "^8.7.0",
 		"json5": "^2.1.3",
 		"node-stream-zip": "^1.13.2",
 		"sample-gtfs-feed": "^0.10.3",
 		"tap-min": "^2.0.0",
-		"tape": "^5.0.0"
+		"tape": "^5.0.0",
+		"tsx": "^4.23.12",
+		"typescript": "^7.0.2"
 	},
 	"scripts": {
-		"test": "env NODE_ENV=dev node test/index.js | tap-min",
+		"test": "env NODE_ENV=dev tsx test/index.js | tap-min",
 		"lint": "eslint .",
+		"typecheck": "tsc --noEmit",
 		"benchmark": "env NODE_ENV=production node benchmark/index.js",
-		"prepublishOnly": "npm test && npm run lint"
+		"prepublishOnly": "npm test && npm run typecheck && npm run lint"
 	}
 }

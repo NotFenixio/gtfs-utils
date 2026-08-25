@@ -3,8 +3,8 @@
 
 const test = require('tape')
 
-const inMemoryStore = require('../lib/in-memory-store')
-const buildTrajectory = require('../lib/build-trajectory')
+const inMemoryStore = require('../lib/in-memory-store').default
+const buildTrajectory = require('../lib/build-trajectory').default
 
 // just for debugging
 const printTrajectorForDebugging = (tr, stopLocs) => {

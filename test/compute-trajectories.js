@@ -2,8 +2,8 @@
 
 const test = require('tape')
 
-const readCsv = require('../read-csv')
-const computeTrajectories = require('../compute-trajectories')
+const readCsv = require('../read-csv').default
+const computeTrajectories = require('../compute-trajectories').default
 
 const trZGB8W9ADowntownAllDayS0 = {
 	type: 'Feature',

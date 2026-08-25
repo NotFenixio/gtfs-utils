@@ -2,8 +2,8 @@
 
 const test = require('tape')
 
-const readCsv = require('../read-csv')
-const readPathways = require('../read-pathways')
+const readCsv = require('../read-csv').default
+const readPathways = require('../read-pathways').default
 
 const readFile = async (file) => {
 	return await readCsv(require.resolve('sample-gtfs-feed/gtfs/' + file + '.txt'))

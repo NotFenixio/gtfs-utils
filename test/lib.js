@@ -3,7 +3,7 @@
 const JSON5 = require('json5')
 const {readFileSync} = require('fs')
 const {join: pJoin} = require('path')
-const readCsv = require('../read-csv')
+const readCsv = require('../read-csv').default
 
 const readJSON5Sync = (path) => {
 	return JSON5.parse(readFileSync(path, {encoding: 'utf8'}))

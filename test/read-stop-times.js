@@ -3,8 +3,8 @@
 const test = require('tape')
 const {readFilesFromFixture} = require('./lib')
 
-const readCsv = require('../read-csv')
-const readStopTimes = require('../lib/read-stop-times')
+const readCsv = require('../read-csv').default
+const readStopTimes = require('../lib/read-stop-times').default
 
 const readFile = (file) => {
 	return readCsv(require.resolve('sample-gtfs-feed/gtfs/' + file + '.txt'))

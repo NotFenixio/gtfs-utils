@@ -3,7 +3,7 @@
 
 const test = require('tape')
 
-const createIterateMatching = require('../lib/iterate-matching')
+const createIterateMatching = require('../lib/iterate-matching').default
 
 const asyncIterableFrom = (...vals) => (async function* () {for (const val of vals) yield val})()
 

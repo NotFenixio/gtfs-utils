@@ -1,3 +1,11 @@
+# NOTICE
+
+This project is licensed under the ISC License.
+
+This project is based on gtfs-utils by Jannis R,
+licensed under the ISC License. The original copyright notice
+and license are preserved in `license.md`.
+
 # gtfs-utils
 
 **Utilities to process [GTFS](https://gtfs.org/reference/static/) data sets.**

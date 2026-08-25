@@ -2,8 +2,8 @@
 
 const test = require('tape')
 
-const readCsv = require('../read-csv')
-const readShapes = require('../read-shapes')
+const readCsv = require('../read-csv').default
+const readShapes = require('../read-shapes').default
 
 const readFile = (file) => {
 	return readCsv(require.resolve('sample-gtfs-feed/gtfs/' + file + '.txt'))
